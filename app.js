@@ -24,7 +24,7 @@ app.post('/send',async(req, res) => {
     if(!title ||!description){
         return res.status(400).send('Title and description are required.');
     }
-    const data=dataSechema({ title, description });
+    const data=dataSechema({ title, description ,date: new Date().toLocaleDateString() });
     await data.save().then(()=>{
         res.send(data);
     });
